@@ -1,0 +1,58 @@
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+  window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous">
+</script>
+<script src="https://getbootstrap.com/docs/4.3/examples/checkout/form-validation.js"></script>
+<script src="https://www.paypal.com/sdk/js?client-id={{paypal_client_id}}&currency=USD"></script>
+
+<script>
+  // Listen for changes to the radio fields
+  document.querySelectorAll('input[name=payment-option]').forEach(function(el) {
+      el.addEventListener('change', function(event) {
+          // If PayPal is selected, show the PayPal button
+          if (event.target.value === 'paypal') {
+              document.querySelector('#card-button-container').style.display = 'none';
+              document.querySelector('#submitButton').style.display = 'none';
+              document.querySelector('#paypal-button-container').style.display = 'inline-block';
+          }
+          // If Card is selected, show the standard continue button
+          if (event.target.value === 'card') {
+              document.querySelector('#card-button-container').style.display = 'inline-block';
+              document.querySelector('#submitButton').style.display = 'inline-block';
+              document.querySelector('#paypal-button-container').style.display = 'none';
+          }
+      });
+  });
+  document.querySelector('#paypal-button-container').style.display = 'none';
+  // Render the PayPal button into #paypal-button-container
+  paypal.Buttons({
+    // Set up the transaction
+      createOrder: function(data, actions) {
+          return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                      value: {{amount}}
+                  }
+              }]
+          });
+      },
+      // Finalize the transaction
+      onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+              // Show a success message to the buyer
+              var paypal_data = JSON.stringify(details);
+              $('#paypal_data').val(paypal_data);
+              document.getElementById("paymentForm").submit(); 
+          });
+      },
+      style: {
+          size: 'large',
+          height: 45,
+          label: 'checkout',
+          layout: 'horizontal',
+          color: 'blue',
+          shape: 'pill',
+          tagline: false
+      }
+  }).render('#paypal-button-container');
+</script>
