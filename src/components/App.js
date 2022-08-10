@@ -1,19 +1,32 @@
-import React, { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
+import Nav from "./Nav";
 import DashBoard from "./Dashboard";
+import NewTweet from "./NewTweet"
+import TweetPage from "./TweetPage"
+import { Routes, Route} from "react-router-dom"
 
-const App = ({dispatch,loading}) => {
+const App = (props) => {
 
     useEffect(() => {
-        dispatch(handleInitialData())
+        props.dispatch(handleInitialData())
     })
 
     return (
-    <div>
-        {loading === true ? null : <DashBoard/>}
-    </div>
-    )
+        <Fragment>
+            <div className="container">
+                <Nav />
+                {props.loading === true ? null : (
+                        <Routes>
+                            <Route path="/" exact element={<DashBoard />}/>
+                            <Route path="/tweet/:id" element={<TweetPage />}/>
+                            <Route path="/add" exact element={<NewTweet />}/>
+                        </Routes>
+                    )}
+            </div>
+        </Fragment>
+    );
 };
 
 const mapStateToProps = ({authedUser}) => ( 
@@ -22,4 +35,4 @@ const mapStateToProps = ({authedUser}) => (
     }
 )
 
-export default connect()(App)
+export default connect(mapStateToProps)(App)

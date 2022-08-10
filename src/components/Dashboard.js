@@ -4,21 +4,19 @@ import Tweet from "./Tweet"
 const DashBoard = (props) => {
     return (
      <div>
-        <h3 className="center">Your Time Line</h3>
+        <h3 className="center">Your Timeline</h3>
         <ul className="dashboard-list">
-            {
-                props.tweetIds.map((id) => (
+            {props.tweetIds.map((id) => (
                     <li key={id}>
                         <div>
                             <Tweet id={id} />
                         </div>
                     </li>
-                ))
-            }
+                ))}
         </ul>
-        </div>
-    )
-}
+    </div>
+    );
+};
 
 const mapStateToProps = ({ tweets }) => ({
         tweetIds: Object.keys(tweets).sort (
