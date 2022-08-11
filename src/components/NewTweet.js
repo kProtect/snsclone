@@ -7,43 +7,42 @@ import { useNavigate } from "react-router-dom";
 const NewTweet = ({dispatch,id}) => {
 
     const navigate = useNavigate();
-    const [comment, setComment] = useState("");
+    const [text, setText] = useState("");
 
     const handleChange = (e) => {
-        const comment = e.target.value;
+        const text = e.target.value;
 
-        setComment(comment);
+        setText(text);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        dispatch(handleAddTweet(comment,id));
+        dispatch(handleAddTweet(text,id));
 
 
-        setComment("");
+        setText("");
         
         if (!id) {
             navigate("/");
         }
     }
 
-    const textLimit = 280 - comment.length;
+    const textLimit = 280 - text.length;
 
     return (
         <div>
-            <h2 className="center"> New Comment </h2>
-            <form className="new-comment" onSubmit={handleSubmit}>
-                {/* {} */}
+            <h2 className="center"> New text </h2>
+            <form className="new-text" onSubmit={handleSubmit}>
                 <textarea 
                 placeholder="what's on your mind" 
-                value={comment} 
+                value={text} 
                 onChange={handleChange} 
                 className="textarea" 
                 maxLength={280}
                 />
                 {textLimit <= 100 && <div className="text-length">{textLimit}</div>}
-                <button className="post" type="submit" disabled={comment === ""}>
+                <button className="post" type="submit" disabled={text === ""}>
                     Post
                 </button>
             </form>
