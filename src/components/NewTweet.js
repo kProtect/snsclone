@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 
 const NewTweet = ({dispatch,id}) => {
-
     const navigate = useNavigate();
     const [text, setText] = useState("");
 
@@ -26,13 +25,13 @@ const NewTweet = ({dispatch,id}) => {
         if (!id) {
             navigate("/");
         }
-    }
+}
 
     const textLimit = 280 - text.length;
 
     return (
         <div>
-            <h2 className="center"> New text </h2>
+            <h2 className="center"> New Comment </h2>
             <form className="new-text" onSubmit={handleSubmit}>
                 <textarea 
                 placeholder="what's on your mind" 
@@ -46,9 +45,8 @@ const NewTweet = ({dispatch,id}) => {
                     Post
                 </button>
             </form>
-
         </div>
-    )
-}
+    );
+};
 
 export default connect()(NewTweet);
