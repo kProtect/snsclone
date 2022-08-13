@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import Nav from "./Nav";
+import Login from './Login';
 import DashBoard from "./Dashboard";
 import NewTweet from "./NewTweet"
 import TweetPage from "./TweetPage"
@@ -26,6 +27,8 @@ const App = (props) => {
                             <Route path="/" exact element={<DashBoard />}/>
                             <Route path="/tweet/:id" element={<TweetPage />}/>
                             <Route path="/add" exact element={<NewTweet />}/>
+                            <Route path="/login" exact element={<Login />}
+              />
                         </Routes>
                     )}
             </div>
