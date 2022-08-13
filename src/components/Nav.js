@@ -34,6 +34,9 @@ const Nav = () => {
                 <li>
                     <Link to="add">New Comment</Link>
                 </li>
+                <li>
+                    <Link to="add">Donation</Link>
+                </li>
             </ul>
             {Auth.loggedIn() ? (
             <>
@@ -59,3 +62,4 @@ const Nav = () => {
 };
 
 export default Nav;
+
