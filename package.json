@@ -24,6 +24,7 @@
     "react-spinners": "^0.13.4",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
+    "seed": "^0.4.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
