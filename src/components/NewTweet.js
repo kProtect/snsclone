@@ -2,6 +2,7 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { handleAddTweet } from "../actions/tweets";
 import { useNavigate } from "react-router-dom";
+import { Textarea } from '@chakra-ui/react'
 
 
 const NewTweet = ({dispatch,id}) => {
@@ -33,7 +34,7 @@ const NewTweet = ({dispatch,id}) => {
         <div>
             <h2 className="center"> New Comment </h2>
             <form className="new-text" onSubmit={handleSubmit}>
-                <textarea 
+                <Textarea 
                 placeholder="what's on your mind" 
                 value={text} 
                 onChange={handleChange} 

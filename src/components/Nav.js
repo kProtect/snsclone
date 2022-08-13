@@ -9,32 +9,12 @@ const Nav = () => {
       };
     return (
         <nav>
-          <Tabs>
-           <TabList>
-              <Tab>One</Tab>
-              <Tab>Two</Tab>
-              <Tab>Three</Tab>
+          <Tabs size='md' variant='enclosed'>
+           <TabList >
+              <Tab><Link to="/">Home</Link></Tab>
+              <Tab><Link to="add">New Comment</Link></Tab>
             </TabList>
-             <TabPanels>
-               <TabPanel>
-                 <p>one!</p>
-               </TabPanel>
-               <TabPanel>
-                  <p>two!</p>
-                </TabPanel>
-               <TabPanel>
-                  <p>three!</p>
-                </TabPanel>
-              </TabPanels>
             </Tabs>     
-            <ul >
-                <li >
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="add">New Comment</Link>
-                </li>
-            </ul>
             {Auth.loggedIn() ? (
             <>
               <Link className="btn btn-lg btn-info m-2" to="/me">

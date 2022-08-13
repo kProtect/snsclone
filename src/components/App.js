@@ -6,6 +6,7 @@ import Login from './Login';
 import DashBoard from "./Dashboard";
 import NewTweet from "./NewTweet"
 import TweetPage from "./TweetPage"
+import Signup from "./Signup"
 import { Routes, Route} from "react-router-dom"
 
 const App = (props) => {
@@ -20,7 +21,7 @@ const App = (props) => {
 
     return (
         <Fragment>
-            <div className="container" style={{backgroundColor:'gray'}}>
+            <div>
                 <Nav />
                 {loading === true ? null : (
                         <Routes>
@@ -28,7 +29,7 @@ const App = (props) => {
                             <Route path="/tweet/:id" element={<TweetPage />}/>
                             <Route path="/add" exact element={<NewTweet />}/>
                             <Route path="/login" exact element={<Login />}/>
-                            <Route path="/signup" exact element={<Login />}/>
+                            <Route path="/signup" exact element={<Signup />}/>
                         </Routes>
                     )}
             </div>
