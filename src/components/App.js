@@ -27,8 +27,8 @@ const App = (props) => {
                             <Route path="/" exact element={<DashBoard />}/>
                             <Route path="/tweet/:id" element={<TweetPage />}/>
                             <Route path="/add" exact element={<NewTweet />}/>
-                            <Route path="/login" exact element={<Login />}
-              />
+                            <Route path="/login" exact element={<Login />}/>
+                            <Route path="/signup" exact element={<Login />}/>
                         </Routes>
                     )}
             </div>
