@@ -28,7 +28,10 @@ const App = (props) => {
                             <Route path="/" exact element={<DashBoard />}/>
                             <Route path="/tweet/:id" element={<TweetPage />}/>
                             <Route path="/add" exact element={<NewTweet />}/>
+<<<<<<< HEAD
                             <Route path="/payment" exact element={<Payment />}/>
+=======
+>>>>>>> 5974f7a6499c3bd50132864d9d0cb9c733b89989
                             <Route path="/login" exact element={<Login />}/>
                             <Route path="/signup" exact element={<Login />}/>
                         </Routes>
