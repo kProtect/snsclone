@@ -15,6 +15,20 @@ const Nav = () => {
               <Tab><Link to="add">New Comment</Link></Tab>
             </TabList>
             </Tabs>     
+<<<<<<< HEAD
+=======
+            <ul >
+                <li >
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="add">New Comment</Link>
+                </li>
+                <li>
+                    <Link to="add">Donation</Link>
+                </li>
+            </ul>
+>>>>>>> ab0ccb25dbad9f7ad23325d8a3126f74b8cd14f1
             {Auth.loggedIn() ? (
             <>
               <Link className="btn btn-lg btn-info m-2" to="/me">
@@ -39,3 +53,4 @@ const Nav = () => {
 };
 
 export default Nav;
+
