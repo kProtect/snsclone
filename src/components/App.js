@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import Nav from "./Nav";
@@ -8,16 +8,20 @@ import TweetPage from "./TweetPage"
 import { Routes, Route} from "react-router-dom"
 
 const App = (props) => {
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        },1000);
         props.dispatch(handleInitialData())
-    })
+    },[])
 
     return (
         <Fragment>
-            <div className="container">
+            <div className="container" style={{backgroundColor:'gray'}}>
                 <Nav />
-                {props.loading === true ? null : (
+                {loading === true ? null : (
                         <Routes>
                             <Route path="/" exact element={<DashBoard />}/>
                             <Route path="/tweet/:id" element={<TweetPage />}/>
