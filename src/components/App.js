@@ -6,6 +6,7 @@ import DashBoard from "./Dashboard";
 import NewTweet from "./NewTweet"
 import TweetPage from "./TweetPage"
 import { Routes, Route} from "react-router-dom"
+import Payment from "./Payment";
 
 const App = (props) => {
 
@@ -22,6 +23,7 @@ const App = (props) => {
                             <Route path="/" exact element={<DashBoard />}/>
                             <Route path="/tweet/:id" element={<TweetPage />}/>
                             <Route path="/add" exact element={<NewTweet />}/>
+                            <Route path="/payment" exact element={<Payment />}/>
                         </Routes>
                     )}
             </div>
