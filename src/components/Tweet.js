@@ -9,7 +9,6 @@ import { handleToggleTweet } from "../actions/tweets";
 import { useNavigate, Link} from "react-router-dom";
 
 const Tweet = (props) => {
-
   const navigate = useNavigate();
 
   const handleLike = (e) => {
@@ -17,11 +16,12 @@ const Tweet = (props) => {
 
     const {dispatch, tweet, authedUser} = props;
 
-    dispatch(handleToggleTweet({
+    dispatch(
+      handleToggleTweet({
       id: tweet.id,
       hasLiked: tweet.hasLiked,
       authedUser,
-    })
+      })
     );
   };
 
