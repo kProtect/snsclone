@@ -13,8 +13,8 @@ module.exports = {
       // Verify we got a good "db" object
       if (db)
       {
-        _db = db.db("employees");
-        console.log("Successfully connected to MongoDB."); 
+        _db = db.db("ChatBridge");
+        console.log("Successfully connected."); 
       }
       return callback(err);
          });
