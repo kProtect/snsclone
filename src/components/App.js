@@ -2,22 +2,20 @@ import { Fragment, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import Nav from "./Nav";
-import Login from './Login';
 import DashBoard from "./Dashboard";
 import NewTweet from "./NewTweet"
 import TweetPage from "./TweetPage"
-import Signup from "./Signup"
 import { Routes, Route} from "react-router-dom"
 
 
-const App = (props) => {
+const App = ({dispatch}) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
         },1000);
-        props.dispatch(handleInitialData())
+        dispatch(handleInitialData())
     },[])
 
     return (
@@ -29,8 +27,6 @@ const App = (props) => {
                             <Route path="/" exact element={<DashBoard />}/>
                             <Route path="/tweet/:id" element={<TweetPage />}/>
                             <Route path="/add" exact element={<NewTweet />}/>
-                            <Route path="/login" exact element={<Login />}/>
-                            <Route path="/signup" exact element={<Signup />}/>
                         </Routes>
                     )}
             </div>
