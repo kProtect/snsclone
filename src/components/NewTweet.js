@@ -9,22 +9,7 @@ const NewTweet = ({dispatch,id}) => {
     const navigate = useNavigate();
     const [text, setText] = useState("");
 
-
-    await fetch("http://localhost:5000/record/add", {
-     method: "POST",
-     headers: {
-       "Content-Type": "application/json",
-     },
-     body: JSON.stringify(newPerson),
-   })
-   .catch(error => {
-     window.alert(error);
-     return;
-   });
- 
-   setForm({ name: "", position: "", level: "" });
-   navigate("/");
- }
+    
 
     const handleChange = (e) => {
         const text = e.target.value;
