@@ -10,7 +10,6 @@ const Nav = () => {
            <TabList >
               <Tab className="list"><Link to="/">Home</Link></Tab>
               <Tab className="list"><Link to="add">New Comment</Link></Tab>
-              <Tab className="list"><Link to="payment">Payment</Link></Tab>
             </TabList>
             </Tabs>     
             
